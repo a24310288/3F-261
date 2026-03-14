@@ -1,0 +1,162 @@
+(Practica 4)
+@startuml
+
+class Zelda {
+ 
+    + Moverse()
+    + Atacar()
+    + UsarItem()
+    + RecogerItem()
+    + Interactuar(NPC)
+    + Entrar(Estructura)
+    + UsarPortal(Portal)
+}
+
+class Mazmorra {
+   + Entrar()
+   + Salir()
+}
+
+class Personaje {
+    + Morir()
+    + Moverse()
+    + Saltar()
+}
+
+class Estructura {
+    + Entrar()
+    + Salir()
+    + Examinar()
+}
+
+class Hada {
+    + Curar()
+    + DarPistas()
+}
+
+class Npc {
+   
+    + Interactuar()
+    + DarObjeto(Zelda)
+}
+
+class Enemigo {
+    + Atacar()
+    + Morir()
+    + Moverse()
+}
+
+class Llave_Pequeña {
+    
+    + AbrirPuerta(Puerta_Cerrada)
+}
+
+class Llave_Grande {
+    
+    + AbrirPuerta(Puerta_Cerrada)
+}
+
+
+
+class Bombas {
+    + Colocar()
+}
+
+class Arco {
+    + Disparar()
+}
+
+
+class Escudo {
+    + Bloquear()
+}
+
+class Boomerang {
+    + Lanzar()
+    + Recoger()
+}
+
+class Pocion {
+    + Usar(Zelda)
+}
+
+class Brujula {
+    + MostrarDireccion()
+}
+
+class Mapa {
+    + MostrarArea()
+}
+
+class Bloque_Movible {
+    + Empujar()
+}
+
+class Antorchas {
+    + Encender()
+    + Apagar()
+}
+
+class Tienda {
+    + VenderItem(Zelda)
+    + ComprarItem(Zelda)
+}
+
+class Portal {
+    + Teletransportar(Zelda)
+}
+
+class Amuleto_Especial {
+    + Activar()
+}
+
+class Fragmento_De_Corazon {
+    + AumentarVidaMaxima(Zelda)
+}
+
+class Trampa {
+    + Activar()
+    + CausarDaño(Zelda)
+}
+
+class Puerta_Cerrada {
+    + Abrir(Llave_Pequeña)
+    + Abrir(Llave_Grande)
+}
+
+class Puerta_Secreta {
+    + Revelar()
+}
+
+Zelda --|> Personaje
+Estructura --|> Mazmorra
+
+Zelda *-- Vida
+Zelda o-- Rupias
+Zelda o-- Llave_Pequeña
+Zelda o-- Llave_Grande
+Zelda *-- Velocidad
+Zelda *-- Daño
+Zelda o-- Bombas
+Zelda o-- Arco
+Zelda o-- Flechas
+Zelda o-- Escudo
+Zelda o-- Boomerang
+Zelda o-- Pocion
+Zelda o-- Brujula
+Zelda o-- Mapa
+
+Estructura *-- Bloque_Movible
+Estructura *-- Antorchas
+Estructura *-- Trampa
+Estructura *-- Puerta_Cerrada
+Estructura *-- Puerta_Secreta
+Zelda o-- Tienda
+Zelda o-- Portal
+Zelda o-- Amuleto_Especial
+Zelda o-- Fragmento_De_Corazon
+
+Zelda o-- Hada
+Zelda o-- Npc
+Zelda o-- Enemigo
+@enduml
